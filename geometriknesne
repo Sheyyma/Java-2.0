@@ -1,0 +1,61 @@
+package kalitim;
+public class geometriknesne {
+    String renk;
+    boolean dolumu;
+
+    public geometriknesne(String renk, boolean dolumu) {
+        this.renk = renk;
+        this.dolumu = dolumu;
+    }
+
+    public String getrenk() {
+        return renk;
+    }
+
+    public boolean getdolumu() {
+        return dolumu;
+
+    }
+}
+
+    class dikdortgen extends geometriknesne {
+        double a, b;
+
+        public dikdortgen(double a, double b, String renk, boolean dolumu) {
+            super(renk, dolumu);
+            this.a = a;
+            this.b = b;
+        }
+
+        public double getAlan() {
+            return a * b;
+        }
+    }
+
+    class cember extends geometriknesne{
+    double r;
+    public cember(double r, String renk, boolean dolumu){
+        super (renk, dolumu);
+        this.r=r;
+    }
+    double cemAlan(){
+        return Math.PI*r*r;
+    }
+    }
+     class main{
+        public static void main(String[] args) {
+            cember c= new cember(2,"mavi",false);
+            dikdortgen d = new dikdortgen(2,3,"sari",true);
+            System.out.println(c.getrenk());
+            System.out.println(c.getdolumu());
+            goster(c);
+            goster(d);
+
+        }
+        public static void goster(geometriknesne g){
+            System.out.println("geometrik nesnenin rengi "+ g.getrenk()+" dolu olma durumu "+ g.getdolumu());
+
+        }
+    }
+
+
