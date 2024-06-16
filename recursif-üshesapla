@@ -1,0 +1,9 @@
+public class AA {
+    //k nın n. üssü
+    static int power(int k, int n){
+        if(n==0){
+            return 1;
+        }else{
+            return  k*power(k,n-1);
+        }
+    }
