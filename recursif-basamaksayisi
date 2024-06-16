@@ -1,0 +1,8 @@
+public class AA {
+    static int basamaksay(int n){
+        if((-10<n)&& (n<10)){
+            return 1;
+        }else{
+            return 1 + basamaksay(n/10);
+        }
+    }
