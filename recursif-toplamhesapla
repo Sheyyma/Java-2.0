@@ -1,0 +1,10 @@
+public class AA {
+    public int topla(int num){
+        int result;
+        if(num==1){
+            result=1;
+        }else{
+            result=num + topla(num-1);
+        }
+        return result;
+    }
