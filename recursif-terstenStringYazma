@@ -1,0 +1,11 @@
+public class AA {
+    //Kendisine parametre olarak gelen dizgiyi tersten
+//yazan rekursif metot
+
+    static void tersYaz(String s){
+        if(s.length()>0){
+            System.out.print(s.substring(s.length()-1,s.length()));
+            tersYaz(s.substring(0,s.length()-1));
+
+        }
+    }
