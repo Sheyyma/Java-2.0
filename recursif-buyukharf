@@ -1,0 +1,13 @@
+public class AA {
+    //kendisine parametre olarak stringteki büyük harflerin sayısını bulan
+
+    public static int buyukbul(String kelime) {
+        if (kelime.length() < 1) {
+            return 0;
+        } else if ((kelime.charAt(kelime.length() - 1) >= 'A') && (kelime.charAt(kelime.length() - 1) <= 'Z')) {
+            return 1 + buyukbul(kelime.substring(0, kelime.length() - 1));
+
+        } else {
+            return 0 + buyukbul(kelime.substring(0, kelime.length() - 1));
+        }
+    }
