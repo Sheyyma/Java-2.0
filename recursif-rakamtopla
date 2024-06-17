@@ -1,0 +1,10 @@
+public class AA {
+  //kendisine parametre olarak sayının rakamlarını toplayan rekurcif
+
+    public int rakamtopla(int sayi){
+        if(sayi%10==0){
+            return sayi;
+        }else{
+            return sayi%10+rakamtopla(sayi/10);
+        }
+    }
