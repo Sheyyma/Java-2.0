@@ -4,9 +4,9 @@ public class AA {
        //Sayılar içerisinde tek ve çift sayılardan oluşan bir takım sayı yer almaktadır. Sizden bu
         //sayılardan tekleri tekler.txt, çiftleri çiftler.txt dosyasına yazmanız istenmektedir.
 
-        File fsayilar= new File("sayilar");
-        File ftek= new File("tek");
-        File fcift= new File("çiftler");
+        File fsayilar= new File("sayilar.txt");
+        File ftek= new File("tek.txt");
+        File fcift= new File("çiftler.txt");
 
         Scanner kf= new Scanner(fsayilar);
 
