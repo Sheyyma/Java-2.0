@@ -1,0 +1,14 @@
+public class AA {
+    //kendisine parametre olarak bir karakter dizisi ve bir karakter alan ve karakterlerin dizide kaç
+    // kez tekrar ettiğini bul
+
+    public static int harfbul(char[]dizi,char a,int i) {
+        if(i<0){
+            return 0;
+        }else if(dizi[i]==a){
+            return 1+harfbul(dizi,a,i-1);
+        }else{
+            return 0+ harfbul(dizi,a,1-1);
+        }
+
+    }
