@@ -1,0 +1,42 @@
+package ornekler;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class AA {
+    public static void main(String[] args) throws IOException {
+
+       //Vizeler.txt ve finallar.txt olmak üzere iki adet dosyada öğrencilere ait vize ve final notları sıralı
+        //olarak verilmiştir. Vizeler dosyasındaki ilk öğrencinin final notu finaller dosyasının ilk sırasında
+        //yer almaktadır. Ortalama notlar vizenin 0.4 ü ile finalin 0.6’sının toplamı ile hesaplanmaktadır.
+        //Sizden öğrencilerin vize ve final notlarını okuyarak sene sonu ortalamalarını bulmanız
+        //istenmektedir. Bulunan sonuçların ortalamalar.txt dosyasına aynı sırada yazılması isteniyor.
+        //Gerekli Java kodunu yazınız.
+
+
+        File fVize= new File("vizeler.txt");
+        File fFinal= new File("finaller.txt");
+        File fOrtalama= new File("ortalamalar.txt");
+
+        fOrtalama.createNewFile();
+
+        Scanner vizeoku= new Scanner(fVize);
+        Scanner finaloku= new Scanner(fFinal);
+
+        PrintWriter yaz= new PrintWriter(fOrtalama);
+
+        while(vizeoku.hasNext()){
+            int vize= vizeoku.nextInt();
+            int finall= finaloku.nextInt();
+
+            double ort=vize*0.4+finall*0.6;
+            yaz.println(ort);
+        }
+
+         yaz.close();
+
+   }
+}
