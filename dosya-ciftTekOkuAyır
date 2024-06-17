@@ -1,0 +1,32 @@
+public class AA {
+    public static void main(String[] args) throws FileNotFoundException {
+
+       //Sayılar içerisinde tek ve çift sayılardan oluşan bir takım sayı yer almaktadır. Sizden bu
+        //sayılardan tekleri tekler.txt, çiftleri çiftler.txt dosyasına yazmanız istenmektedir.
+
+        File fsayilar= new File("sayilar");
+        File ftek= new File("tek");
+        File fcift= new File("çiftler");
+
+        Scanner kf= new Scanner(fsayilar);
+
+        PrintWriter pwtek= new PrintWriter(ftek);
+        PrintWriter pwcift= new PrintWriter(fcift);
+
+        while (kf.hasNext()){
+            int yaz = kf.nextInt();
+            if(yaz%2==0){
+                pwcift.println(yaz);
+
+            }else{
+                pwtek.println(yaz);
+            }
+        }
+        pwcift.close();
+        pwtek.close();
+
+
+
+
+   }
+}
