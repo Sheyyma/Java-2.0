@@ -1,0 +1,15 @@
+public class AA {
+  //Bir dizgede bir karakterin kaç kez geçtiğini bulan rekürsif metot
+
+    public static int kazKez(String s,char a){
+        if(s.length()<1){
+            return 0;
+        }else if (s.substring(s.length()-1,s.length()).charAt(0)==a){
+            return 1+ kazKez(s.substring(0,s.length()-1),a);
+
+        }else{
+            return 0+ kazKez(s.substring(0,s.length()-1),a);
+        }
+
+
+    }
