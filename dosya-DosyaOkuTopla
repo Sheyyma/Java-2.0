@@ -1,0 +1,34 @@
+package ornekler;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class AA {
+    public static void main(String[] args) throws IOException {
+        // bir dosyada bulunan sayıları okuyarak onların toplamını bulan
+        Scanner oku=null;
+        int toplam=0;
+        int sayac=0;
+
+        try{
+            oku= new Scanner("sayilar.txt");
+            while (oku.hasNext()){
+                int sayi= oku.nextInt();
+                toplam+=sayi;
+                System.out.println(sayi+" ");
+                sayac++;
+            }
+            double ort=(double)toplam/sayac;
+            System.out.println("toplamı "+toplam+" ortalaması" +ort);
+        }catch (Exception e){
+
+        }
+
+
+
+
+   }
+}
