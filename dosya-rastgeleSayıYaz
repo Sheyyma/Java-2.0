@@ -1,0 +1,44 @@
+package ornekler;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class AA {
+    public static void main(String[] args) throws IOException {
+        // rastgele üretilen 10 sayıyı dosyaya yazan daha sonra bu dosyadan
+        // sayıları okuyan ve sıralı gösteren
+
+        try{
+            File fRastgele= new File("rastgele.txt");
+            if (!fRastgele.exists()) {
+                fRastgele.createNewFile(); // Dosya yoksa oluşturun
+            }
+
+            PrintWriter pw1= new PrintWriter(fRastgele);
+            for(int i=0; i<10; i++){
+                int sayi=(int)(Math.random()*10);
+                pw1.println(sayi);
+
+
+            }
+            pw1.close();
+            Scanner oku= new Scanner(fRastgele);
+
+            int[] dizi= new int[10];
+            while(oku.hasNext()){
+                int sayi= oku.nextInt();
+                dizi[sayi]=sayi;
+            }
+            for(int i:dizi){
+
+                    System.out.println(i+" ");
+
+                }
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+}
