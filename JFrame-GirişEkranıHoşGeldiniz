@@ -1,0 +1,35 @@
+package button;
+
+import java.awt.FlowLayout;
+import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class button {
+    public button() {
+    }
+
+    public static void main(String[] args) {
+        JFrame jf = new JFrame("ekran");
+        jf.setSize(400, 300);
+        jf.setLayout((LayoutManager)null);
+        jf.getContentPane().setLayout(new FlowLayout());
+        JButton btn = new JButton("giriş");
+        btn.setBounds(100, 50, 200, 30);
+        final JTextField tf = new JTextField(20);
+        final JLabel lb = new JLabel("hoş geldiniz");
+        btn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                lb.setText("Sayın " + tf.getText() + " hoş geldiniz");
+            }
+        });
+        jf.add(btn);
+        jf.add(tf);
+        jf.add(lb);
+        jf.setVisible(true);
+    }
+}
