@@ -1,0 +1,31 @@
+import javax.swing.*;
+
+public class Frame {
+    public static void main(String[] args) {
+        JFrame jf= new JFrame("Frame");
+        jf.setLocation(100,200);
+        jf.setSize(400,500);
+        jf.setLayout(null); // frame e ekleme yapma
+
+        JButton btn= new JButton("giriş");
+        btn.setBounds(100,150,200,30);
+        jf.add(btn);
+
+        JLabel lb= new JLabel("isim");
+        lb.setBounds(50,50,200,30);
+        jf.add(lb);
+
+        JLabel lb1= new JLabel("parola");
+        lb1.setBounds(50,100,200,30);
+        jf.add(lb1);
+
+        JTextField tf1= new JTextField(200);
+        tf1.setBounds(100,55,200,30);
+        jf.add(tf1);
+
+        JTextField tf = new JTextField(200);
+        tf.setBounds(100,105,200,30);
+        jf.add(tf);
+        jf.setVisible(true); //ekranda çıkması için
+    }
+}
