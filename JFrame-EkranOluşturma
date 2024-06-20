@@ -1,0 +1,21 @@
+package grafik;
+
+import javax.swing.*;
+
+class cizim extends JPanel{
+    public cizim(){}
+   
+}
+public class Grafikgece extends JFrame {
+    public Grafikgece () {add (new cizim());}
+    public static void main(String[] args) {
+        Grafikgece form = new Grafikgece();
+        form.setSize(400,400);
+        form.setLocation(300,100);
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        form.setVisible(true);
+        form.setResizable(true);
+    }
+
+
+}
