@@ -1,0 +1,44 @@
+package grafik;
+
+import javax.swing.*;
+import java.awt.*;
+
+class cizim extends JPanel{
+    public cizim(){}
+    public void paintComponent (Graphics g){
+        super.paintComponent(g);
+        Font f= new Font("Times New Roman", Font.BOLD,24);
+        g.setFont(f);
+        g.setColor(Color.cyan);//yazının rengi
+        g.drawString("şeyma",100,150);//yazı yazma
+
+        g.setColor(Color.red);//çizginin rengi
+        g.drawLine(0,0,200,200); //çizgi
+
+        g.setColor(Color.ORANGE);//dikdörtgen rengi
+        g.drawRect(200,200,80,40);//dikdörtgen
+
+        g.setColor(Color.blue);//yuvarlak rengi
+        g.drawOval(200,200,80,40);//yuvarlak
+        
+        g.setColor(Color.GRAY);//kare rengi
+        g.drawRoundRect(300,300,50,50,10,10);//kare
+
+    }
+}
+
+
+
+public class Grafikgece extends JFrame {
+    public Grafikgece () {add (new cizim());}
+    public static void main(String[] args) {
+        Grafikgece form = new Grafikgece();
+        form.setSize(400,400);
+        form.setLocation(300,100);
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        form.setVisible(true);
+        form.setResizable(true);
+    }
+
+
+}
