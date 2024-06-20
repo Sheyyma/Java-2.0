@@ -1,0 +1,57 @@
+import javax.swing.*;
+import java.awt.*;
+
+class isim extends JPanel {
+    int x,y,boy;
+    public isim(){
+        boy=20;
+        x=(getWidth()/2)-boy/2;
+        y=(getHeight()/2)-boy/2;
+    }
+    public void paintComponent(Graphics g){
+        super.paintComponents(g);
+        Font f= new Font("Times New Roman", Font.BOLD,24);
+        g.setFont(f);
+
+        boy = 200;
+        x = (getWidth()/2) - boy/2; // en
+        y = (getHeight()/2) - boy/2; // boy
+        g.drawOval(x,y,boy,boy);
+        int mx= getWidth()/2;
+        int my= getHeight()/2;
+        for(int i=0; i<getWidth();i+=10){
+            for(int j=0;j<getHeight();j+=10){
+                double mes=Math.sqrt((i-mx)*(i-mx)+(j-my)*(j-my));
+                if(mes<boy){
+                    g.setColor(Color.cyan);
+                    g.drawString("+",i,j);
+                }else{
+                    g.setColor(Color.black);
+                    g.drawString("-",i,j);
+                }
+
+
+            }
+        }
+
+        g.setColor(Color.blue);
+
+    }
+
+
+}
+class grafik extends JFrame{
+    public grafik () {add (new isim());}
+    public static void main(String[] args) {
+        grafik form = new grafik();
+        form.setSize(400,400);
+        form.setLocation(300,100);
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        form.setVisible(true);
+        form.setResizable(true);
+    }
+
+
+}
+
+
