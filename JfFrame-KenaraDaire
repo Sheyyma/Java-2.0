@@ -1,0 +1,42 @@
+package grafik;
+
+import javax.swing.*;
+import java.awt.*;
+class isim extends JPanel {
+    int x,y,boy;
+    public isim(){
+        boy=20;
+        x=(getWidth()/2)-boy/2;
+        y=(getHeight()/2)-boy/2;
+    }
+    public void paintComponent(Graphics g){
+        super.paintComponents(g);
+        Font f= new Font("Times New Roman", Font.BOLD,24);
+        g.setFont(f);
+        for(int i=0; i<=5;i++){
+            g.drawOval(x,y,boy,boy);
+            x=x-5;
+            y=y-5;
+            boy=boy+10;
+        }
+    
+
+    g.setColor(Color.blue);
+
+}
+
+
+}
+class grafik extends JFrame{
+    public grafik () {add (new isim());}
+    public static void main(String[] args) {
+        grafik form = new grafik();
+        form.setSize(400,400);
+        form.setLocation(300,100);
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        form.setVisible(true);
+        form.setResizable(true);
+    }
+
+
+}
