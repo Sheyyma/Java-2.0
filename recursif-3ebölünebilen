@@ -1,0 +1,22 @@
+public class deneme {
+    //kendisine parametre olarak gelen sayısal dizideki üçe bölünebilen sayıların
+    //toplamını recursif olarak hesaplayan metot
+    public static int topbul(int [] dizi, int i) {
+        if(i>=dizi.length) {
+           return 0;
+        }else if (dizi[i]%3==0){
+            return dizi[i]+topbul(dizi,++i);
+        }
+        return topbul(dizi,++i);
+
+    }
+
+
+    public static void main(String[] args) {
+        int [] dizi={1,3,4,8,9,7,6};
+        System.out.println( topbul(dizi, 0));
+
+
+    }
+
+}
