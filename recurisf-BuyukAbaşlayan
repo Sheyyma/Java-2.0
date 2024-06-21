@@ -1,0 +1,27 @@
+public class deneme {
+    //kendisine parametre olarak gelen string dizisindeki ilk harfi büyük olan A olanları buluk
+    //ekrana yazan rekursif
+
+    public static void Abuyukyaz(String [] dizi, int i){
+        if(i>= dizi.length){
+            System.exit(1);
+        }
+        if(dizi[i].charAt(0)=='A'){
+            System.out.println(dizi[i]);
+            Abuyukyaz(dizi,++i);
+        }else{
+            Abuyukyaz(dizi,++i);
+        }
+
+    }
+
+
+    public static void main(String[] args) {
+        String [] dizi={"Ali", "Veli" ,"Ayşe", "Osman"};
+        Abuyukyaz(dizi,0);
+
+
+
+    }
+
+}
