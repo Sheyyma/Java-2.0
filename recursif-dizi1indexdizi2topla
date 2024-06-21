@@ -1,0 +1,25 @@
+public class deneme {
+    //kendisine parametre olarak gelen iki saayısal dizi üzerinde 1.sayısal diziyi
+    //indis olarak kullanan ikinci sayısal dizideki toplamı hesaplayan ve
+    //geri döndüren rekursif metotu yazınız
+
+
+    public static int top(int [] dizi1, int [] dizi2,int i){
+        if(i>=dizi1.length){
+            return 0;
+        }else{
+            return dizi2[dizi1[i]] + top(dizi1,dizi2,++i);
+        }
+    }
+
+
+    public static void main(String[] args) {
+        int [] dizi1={0,2};
+        int [] dizi2=  {2,4,8,2,1};
+        System.out.println(top(dizi1,dizi2,0));
+
+
+
+    }
+
+}
