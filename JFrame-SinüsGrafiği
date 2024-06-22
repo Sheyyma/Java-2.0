@@ -1,0 +1,53 @@
+package grafik;
+//PolyLine ile sinus çizimi
+
+import javax.swing.*;
+import java.awt.*;
+
+public class ornek extends JPanel {
+    protected void paintComponent (Graphics g) {
+        super.paintComponent(g);
+
+        //sinüs fonksiyonu için ölçeklendirme
+        int width = getWidth();
+        int heigth = getHeight();
+        int amplitude = 100;
+        int frequency = 5; //freakans
+
+        //ilk noktayı ekleyin
+        int[] xn = new int[width];
+        int[] yn = new int[width];
+
+        //sinüs dalgasının noktalarını ekleyin
+        for (int i = 0; i < width; i++) {
+            double y = heigth / 2 + amplitude * Math.sin((2 * Math.PI * frequency * i) / width);
+            xn[i] = i;
+            yn[i] = (int) y;
+        }
+
+        //Polyline ı çizme
+        g.setColor(Color.BLUE);
+        g.drawPolyline(xn,yn,width);
+    }
+
+}
+
+
+class AA{
+    public static void main(String[] args) {
+        //Frame oluşturma
+        JFrame jf= new JFrame("Sinüs Grafiği");
+        jf.setDefaultCloseOperation(jf.EXIT_ON_CLOSE);
+        jf.setSize(800,600);
+
+        //NestedCieclesPanel nesnesi oluşturma
+        ornek panel = new ornek();
+        jf.add(panel);
+
+
+        //görünür yapma
+        jf.setVisible(true);
+    }
+}
+
+
