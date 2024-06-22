@@ -1,0 +1,74 @@
+package grafik;
+//Mouse ile çizgi çizme
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+public class ornek extends JPanel implements MouseListener {
+   int indis=0;
+
+   //100 noktanın değerini tutulmakta
+   private int [][] points = new int[2][100];
+
+
+    public void mousePressed(MouseEvent e){
+        points[0][indis]=e.getX();
+        points[1][indis]=e.getY();
+        indis++;
+        repaint();
+    }
+
+
+
+    public ornek(){
+        addMouseListener(this);
+    }
+    @Override
+    protected void paintComponent(Graphics g){
+        super.paintComponent(g);
+
+        g.setColor(Color.BLUE);
+        for(int i=1; i<indis;i++){
+            int p1x=points[0][i-1];
+            int p1y = points[1][i - 1];
+            int p2x = points[0][i ];
+            int p2y = points[1][i];
+            g.drawLine(p1x, p1y, p2x, p2y);
+
+
+        }
+    }
+    @Override
+    public void mouseClicked(MouseEvent e) {}
+    @Override
+    public void mouseReleased(MouseEvent e) {   }
+    @Override
+    public void mouseEntered(MouseEvent e) {     }
+    @Override
+    public void mouseExited(MouseEvent e) {     }
+
+
+
+
+}
+
+class AA{
+    public static void main(String[] args) {
+        //Frame oluşturma
+        JFrame jf= new JFrame("Mouse ile çizgi çizme");
+        jf.setDefaultCloseOperation(jf.EXIT_ON_CLOSE);
+        jf.setSize(800,600);
+
+        //nesne oluşturma
+        ornek panel = new ornek();
+        jf.add(panel);
+
+
+        //görünür yapma
+        jf.setVisible(true);
+    }
+}
+
+
