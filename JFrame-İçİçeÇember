@@ -1,0 +1,53 @@
+package grafik;
+//İç içe 10 adet çember çizen bir program yazımı
+
+import javax.swing.*;
+import java.awt.*;
+
+public class ornek extends JPanel {
+    protected void paintComponent (Graphics g){
+        super.paintComponent(g);
+
+      //panelin merkezini bulma
+        int width= getWidth();
+        int heigh=getHeight();
+        int centerX=width/2;
+        int centerY= heigh/2;
+
+        //çemberin başlangıç ve yarıçapı ve adımı
+        int baslangicr= 20;
+        int ycapadim=20;
+
+
+        //çemberin sayısı
+        int numCircles=10;
+
+        //iç içe çember çizme
+        for(int i=0;i<numCircles;++i){
+            int radius=baslangicr+i*ycapadim;
+            int diameter=2*radius;
+            g.setColor(Color.GRAY);
+            g.drawOval(centerX-radius,centerY-radius,diameter,diameter);
+        }
+
+    }
+
+}
+class AA{
+    public static void main(String[] args) {
+        //Frame oluşturma
+        JFrame jf= new JFrame("iç içe çember çizimi");
+        jf.setDefaultCloseOperation(jf.EXIT_ON_CLOSE);
+        jf.setSize(800,600);
+
+        //NestedCieclesPanel nesnesi oluşturma
+        ornek panel = new ornek();
+        jf.add(panel);
+
+
+        //görünür yapma
+        jf.setVisible(true);
+    }
+}
+
+
