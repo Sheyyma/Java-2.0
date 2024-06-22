@@ -1,0 +1,62 @@
+package grafik;
+//800x600 boyutlarında bir pencere üzerinde çeşitli renklerde dikdörtgen,
+// daire, çizgi, metin, yuvarlak köşeli dikdörtgen, yay ve çokgen çizimlerini yapan kod.
+
+import javax.swing.*;
+import java.awt.*;
+
+public class ornek extends JPanel {
+    protected void paintComponent (Graphics g){
+        super.paintComponent(g);
+
+        //kare
+        g.setColor(Color.RED);
+        g.fillRect(50,50,100,100);
+
+        //daire
+        g.setColor(Color.GREEN);
+        g.fillOval(200,50,100,100);
+
+        //çizgi
+        g.setColor(Color.BLUE);
+        g.drawLine(50,200,150,300);
+
+        //metin yazma
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("Ariel",Font.BOLD,20));
+        g.drawString("temel çizimler",50,350);
+
+        //yuvarlık köşeli dikdortgen çizme
+        g.setColor(Color.MAGENTA);
+        g.drawRoundRect(200,200,150,100,20,20);
+
+        //Arc yay çizme
+        g.setColor(Color.ORANGE);
+        g.drawArc(400,50,100,100,0,180);
+
+        //çokgen çizme
+        int [] xpoints={500,550,600};
+        int [] ypoints={200,100,200};
+        g.setColor(Color.CYAN);
+        g.fillPolygon(xpoints,ypoints,xpoints.length);
+
+    }
+
+}
+class AA{
+    public static void main(String[] args) {
+        //Frame oluşturma
+        JFrame jf= new JFrame("temel grafikler");
+        jf.setDefaultCloseOperation(jf.EXIT_ON_CLOSE);
+        jf.setSize(800,600);
+
+        //Drawing panel nesnesi oluşturup ekleme
+
+        ornek panel= new ornek();
+            jf.add(panel);
+
+            jf.setVisible(true);
+    }
+}
+
+
