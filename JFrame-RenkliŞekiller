@@ -51,11 +51,12 @@ class AA{
         jf.setSize(800,600);
 
         //Drawing panel nesnesi oluşturup ekleme
-
         ornek panel= new ornek();
             jf.add(panel);
-
-            jf.setVisible(true);
+            
+            
+            //görünür yapma
+        jf.setVisible(true);
     }
 }
 
