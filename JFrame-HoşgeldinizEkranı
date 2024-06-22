@@ -1,0 +1,36 @@
+package grafik;
+//hoşgeldiniz ekranı
+
+import javax.swing.*;
+import java.awt.*;
+
+public class ornek extends JPanel {
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        g.drawLine(15, 10, 250, 10);
+        g.drawLine(15, 30, 250, 30);
+
+        g.drawString("JAVA PROGRAMLAMAYA HOŞ GELDİNİZ", 25, 25);
+
+    }
+}
+
+class AA{
+    public static void main(String[] args) {
+        //Frame oluşturma
+        JFrame jf= new JFrame("Giriş Ekranı");
+        jf.setDefaultCloseOperation(jf.EXIT_ON_CLOSE);
+        jf.setSize(300,300);
+
+        //nesne oluşturma
+        ornek panel = new ornek();
+        jf.add(panel);
+
+
+        //görünür yapma
+        jf.setVisible(true);
+    }
+}
+
+
