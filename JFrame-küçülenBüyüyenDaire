@@ -1,0 +1,86 @@
+package grafik;
+//Ekranın tam ortasında büyüyüp küçülen içi dolu çember çizme
+
+import javax.swing.*;
+import java.awt.*;
+
+public class ornek extends JPanel implements Runnable{
+
+
+    private int radius=5; //başlangıç çapı
+    private boolean growing =true; //çemberin büyüyüp büyümeyeceği durumu
+
+    private final int maxRadius=300; //maksimum yarıçap
+
+    private final int minRadius=5; //minimum yarıçap
+
+    private final int step=5; //büyüme küçülme adımı
+
+    public ornek(){
+        //yeni bir thread başlat
+        Thread animator=new Thread(this);
+        animator.start();
+    }
+
+    @Override
+    protected void paintComponent(Graphics g){
+        super.paintComponent(g);
+
+        int width=getWidth();
+        int height=getHeight();
+        int centerX=width/2;
+        int centerY=height/2;
+
+        g.setColor(Color.BLUE);
+        g.fillOval(centerX-radius,centerY-radius,2*radius,2*radius);
+    }
+    @Override
+    public void run(){
+        while(true){
+            if(growing){
+                radius+=step;
+                if(radius>=maxRadius){
+                    growing=false;
+                }
+                else{
+                    radius-=step;
+                    if(radius<=minRadius){
+                        growing=true;
+                    }
+                }
+                repaint();
+
+                try{
+                    //animasyonu hızını ayarlamak için bekleme süresi
+                    Thread.sleep(100);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+
+
+
+}
+
+class AA{
+    public static void main(String[] args) {
+        //Frame oluşturma
+        JFrame jf= new JFrame("Büyüyüp küçülen çember");
+        jf.setDefaultCloseOperation(jf.EXIT_ON_CLOSE);
+        jf.setSize(6000,6000);
+
+        //nesne oluşturma
+        ornek panel = new ornek();
+        jf.add(panel);
+
+
+        //görünür yapma
+        jf.setVisible(true);
+    }
+}
+
+
