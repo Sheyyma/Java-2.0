@@ -1,0 +1,22 @@
+package threadsornek9;
+
+
+ class uyanmavakti extends Thread{
+     public void run() {
+         try{
+             for(;;){
+                 System.out.println("uyuyor");
+                 Thread.sleep(60*10);
+             }
+         }catch (InterruptedException e){
+
+         }
+
+     }
+
+     public static void main(String[] args) {
+         uyanmavakti u1= new uyanmavakti();
+         u1.start();
+         u1.interrupt();
+     }
+ }
