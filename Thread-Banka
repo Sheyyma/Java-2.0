@@ -1,0 +1,58 @@
+package threadsuyg3;
+class bankahesap{
+    private double bakiye;
+    public bankahesap(double bakiye) {
+        this.bakiye = bakiye;
+    }
+    //metotun başına geldiğinde yalnızca önce giren thread çalışır gelen bekletilir
+    //metot tamamlandıktan sonra yeni thread metota ulaşılır
+    synchronized public void paraCek (String kim, double tutar){
+            if(tutar>this.bakiye){
+                System.out.println(kim+ "hesapta istenilen miktarda para yok");
+                System.out.println("çekilmek istenen para tutarı "+tutar);
+                System.out.println("bakiye "+ this.bakiye);
+            }else{
+                bakiye-=tutar;
+                System.out.println(kim +" "+ tutar+" para çekti kalan tutar: "+ this.bakiye);
+            }
+        System.out.println();
+
+        }
+    }
+    class paracekti extends Thread {
+        private bankahesap hesap;
+        private String isim;
+        private double tutar;
+
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(1000);
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+
+            }
+
+            hesap.paraCek(isim, this.tutar);
+        }
+
+        public paracekti(bankahesap hesap, String isim, double tutar) {
+            this.hesap = hesap;
+            this.isim = isim;
+            this.tutar = tutar;
+
+        }
+
+    }
+        class paraCek {
+            public static void main(String[] args) {
+                bankahesap hesap = new bankahesap(1000);
+                paracekti t1 = new paracekti(hesap,"thread 1 ",200);
+                paracekti t2 = new paracekti(hesap,"thread 2 ",500);
+                t1.start();
+                t2.start();
+            }
+        }
+
+
