@@ -1,0 +1,25 @@
+package superornek;
+
+class kisi{
+    void mesaj(){
+        System.out.println("kişi sınıfı");
+    }
+}
+
+class ogrenci extends kisi{
+    void mesaj(){
+        System.out.println("öğrenci sınıfı");
+    }
+    void goster(){
+       mesaj(); // mevcut metotu çağırır
+       super.mesaj(); // super sınıftakini çağırır
+    }
+}
+
+public class supermetot {
+    public static void main(String[] args) {
+        ogrenci s= new ogrenci();
+        s.goster();
+
+    }
+}
