@@ -1,0 +1,15 @@
+package dahilisiniflar;
+// iç içe dahili sınıf
+public class Hesaplama {
+    public class Toplama{
+        public int toplamaYap(int a, int b){
+            return a+b;
+        }
+    }
+
+    public static void main(String[] args) {
+        Hesaplama.Toplama ht= new Hesaplama().new Toplama();
+        int sonuc= ht.toplamaYap(3,5);
+        System.out.println(sonuc);
+    }
+}
