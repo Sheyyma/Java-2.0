@@ -1,0 +1,40 @@
+package threadsuyg2;
+//
+ class asalsayi extends Thread {
+     public static final int maxAsal=10000000;
+     public static final int onSaniye=10000;
+     public boolean bittiMi= false;
+     public void run(){
+         int [] asallar=new int[maxAsal];
+         int sayi=0;
+         for(int i=2; sayi<maxAsal;i++){
+             if(bittiMi){
+                 return;
+             }
+             boolean asal=true;
+             for (int j=0;j<sayi;j++){
+                 if(i%asallar[j]==0){
+                     asal=false;
+                     break;
+
+                 }
+             }
+             if(asal){
+                 asallar[sayi++]=i;
+                 System.out.println("bulunan asal sayi: "+i);
+             }
+
+         }
+     }
+
+     public static void main(String[] args) {
+         asalsayi calc=new asalsayi();
+         calc.start();
+         try{
+             Thread.sleep(onSaniye);
+         }catch (InterruptedException e){
+
+         }
+         calc.bittiMi=true;
+     }
+}
