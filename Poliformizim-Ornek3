@@ -1,0 +1,29 @@
+package polimorfizm;
+
+public class polimorfizm {
+    public static void main(String[] args) {
+        m(new mezunogrenci());
+        m(new ogrenci());
+        m(new insan());
+        m(new Object());
+    }
+        public static void m (Object x){
+            System.out.println(x.toString());
+        }
+    }
+
+    class mezunogrenci extends ogrenci{
+
+    }
+    class ogrenci extends insan{
+        public String toString (){
+            return "Ogrenci";
+        }
+    }
+    class insan extends Object{
+        public String toString(){
+            return "insan";
+        }
+    }
+
+
