@@ -1,0 +1,51 @@
+package threadsuyg;
+//AnaProgram adındaki bir sınıf bu dosyadaki satırları okuyacak, sonra cümlenin ilk kelimesine göre o
+// satırı ilgili iş parçacığı sınıfına (Thread1 veya Thread2) gönderip bu sınıfı çalıştıracaktır. İlgili
+// iş parçacığı ise kurucu metoduna parametre olarak gönderilen cümledeki kelime sayısını ekrana yazdıracaktır.
+// Kelimeler birbirinden virgüllerle ayrılmıştır.
+import java.io.File;
+import java.util.Scanner;
+
+public class thread1 extends Thread {
+    private String cumle;
+    private int satir;
+    public thread1(String cumle,String isim,int satir){
+        super(isim);
+        this.cumle= cumle;
+        this.satir= satir;
+    }
+    public void run() {
+        int i=0;
+        String[] kelimeler=cumle.split(",");
+        System.out.println(this.getName()+" okunan satir "+satir+ " kelime sayisi "+kelimeler.length);
+
+    }
+}
+class AA{
+    public static void main(String[] args) {
+        Scanner oku= null;
+        File dosya= new File("deneme.txt");
+        try{
+            oku=new Scanner(dosya);
+            int i1=0, i2=0;
+            while(oku.hasNext()){
+                String isim= oku.next();
+                int sonuc = isim.indexOf("thread1"+ i1);
+                int sonuc2= isim.indexOf("Thread2");
+                Thread t1,t2;
+                if (sonuc>=0){
+                   // t1=new Thread(isim,"thread",i1);
+                  //  t1.start();
+
+                }else if(sonuc2>=0){
+                     //   t2= new Thread(isim,"thread2",i1);
+                       // t2.start();
+                }
+                i1++;
+            }
+
+        }catch (Exception e){
+
+        }
+    }
+}
