@@ -1,0 +1,49 @@
+package threadsornek2;
+// ilk thread 10 defa a
+// ikinci thread 10 defa b
+// üçümcü thread 1 den 10 e kadar sayıları yazar
+class printChar implements Runnable {
+    private char chatToPrint ;
+    private int times;
+    public printChar(char c, int t){
+        chatToPrint=c;
+        times=t;
+    }
+    public void run() {
+        for(int i =0;i<times;i++){
+            System.out.println(chatToPrint);
+        }
+
+    }
+}
+
+class printNum implements Runnable{
+    private int lastNum;
+
+    public printNum(int n){
+        lastNum=n;
+    }
+
+    public void run() {
+        for(int i=1; i<=lastNum;i++){
+            System.out.println(" "+i);
+        }
+
+    }
+}
+
+class AA {
+    public static void main(String[] args) {
+        Runnable printA = new printChar('a',10);
+        Runnable printB= new printChar('b',10);
+        Runnable printC= new printNum(10);
+
+        Thread t1= new Thread(printA);
+        Thread t2= new Thread(printB);
+        Thread t3= new Thread(printC);
+
+        t1.start();
+        t2.start();
+        t3.start();
+
+    }}
