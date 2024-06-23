@@ -1,0 +1,21 @@
+//“Ogretmen“  sınıfı ve bu sınıftan türetilen bir “Matematik_ogretmeni” sınıfı oluşturunuz.
+package hafta6ornek1;
+
+class ogretmen{
+String aciklama="öğretmen";
+void neyapar(){
+    System.out.println("öğretir");
+}
+}
+public class matematik_ogretmeni  extends ogretmen {
+    String konu= "matematik";
+
+    public static void main(String[] args) {
+        matematik_ogretmeni ogrt= new matematik_ogretmeni();
+        System.out.println(ogrt.aciklama);
+        System.out.println(ogrt.konu);
+        ogrt.neyapar();
+    }
+
+}
+
