@@ -1,0 +1,53 @@
+package threadsornek3;
+
+import java.util.InputMismatchException;
+
+class isci extends Thread{
+    public void run(){
+        for(int i=0;i<5;i++){
+            System.out.println(this.getName()+"--->"+i);
+        }
+    }
+
+}
+class mudur{
+    public void calis(){
+        System.out.println("müdür çalışıyor");
+    }
+}
+class genelMudur extends mudur implements Runnable{
+    public  void calis(){
+        System.out.println("genel müdür çalışıyor");
+    }
+
+    @Override
+    public void run() {
+try{
+    for(int i=0;i<5;i++){
+        System.out.println( Thread.currentThread().getName()+"-->"+i);
+    }
+}catch(InputMismatchException iEx){
+        }
+    }
+}
+
+
+public class thredor3 {
+    public static void main(String[] args) {
+        isci i1= new isci();
+        isci i2= new isci();
+
+       // i1.start();
+        //i2.start();
+
+
+        genelMudur g1= new genelMudur();
+        genelMudur g2= new genelMudur();
+
+        Thread t1= new Thread(g1);
+        Thread t2= new Thread(g2);
+
+        t1.start();
+        t2.start();
+    }
+}
