@@ -1,0 +1,29 @@
+package threadornek8;
+// sleep()
+public class uyuyor extends Thread{
+int i;
+public uyuyor(int a1){
+    i=a1;
+}
+    public void run() {
+      try{
+          while(true){
+              i++;
+              System.out.println("uyuyor");
+              Thread.sleep(60*10);
+              if(i==5){
+                  System.out.println("uyandı");
+                  return;
+              }
+          }
+      }catch (InterruptedException e){
+
+      }
+    }
+
+    public static void main(String[] args) {
+        uyuyor u1= new uyuyor(0);
+        u1.start();
+
+    }
+}
