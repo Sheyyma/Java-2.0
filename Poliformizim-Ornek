@@ -1,0 +1,54 @@
+package polimorfizim2;
+
+class sekil {
+    double boyut1, boyut2;
+
+    sekil(double a, double b) {
+        boyut1 = a;
+        boyut2 = b;
+    }
+
+    double alan() {
+        System.out.println("şeklin alanı henüz tanımlanmadı");
+        return 0;
+    }
+}
+
+class dikdortgen extends sekil{
+    dikdortgen(double a, double b){
+    super(a,b);
+    }
+    @Override
+    double alan(){
+        System.out.println("dikdortgenin alanı: ");
+        return boyut1*boyut2;
+
+    }
+}
+
+class ucgen extends sekil{
+     ucgen(double a, double b) {
+         super(a, b);
+     }
+        double alan(){
+             System.out.println("üçgenin alanı: ");
+             return (boyut1*boyut2)/2;
+
+        }}
+
+    public class polimorfizm2{
+        public static void main(String[] args) {
+            sekil f= new sekil(15,15);
+            dikdortgen r= new dikdortgen(7,4);
+            ucgen t= new ucgen(9,6);
+            sekil ref=r;
+            System.out.println("alan: "+ ref.alan());
+            ref=t;
+            System.out.println("alan: "+ ref.alan());
+            ref=f;
+            System.out.println("alan: "+ ref.alan());
+        }
+    }
+
+
+
