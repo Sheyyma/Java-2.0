@@ -1,0 +1,20 @@
+package dahilisiniflar1;
+
+public class Outer {
+    void outerMethod(){
+        System.out.println("outerMetod içi");
+        class Inner{
+            void innerMetod(){
+                System.out.println("innerMetot içi");
+            }
+        }
+        Inner y= new Inner();
+        y.innerMetod();
+    }
+}
+ class AA{
+    public static void main(String[] args) {
+        Outer x= new Outer();
+        x.outerMethod();
+    }
+}
