@@ -1,0 +1,19 @@
+package threadornek7;
+// tüm iş parçacıkları aynı öncelik sırasına sahip
+ class yieldornek extends Thread {
+     public void run() {
+         for(int i=0; i<5;i++){
+             System.out.println(this.getName());
+             Thread.yield();
+         }
+
+     }
+ }
+ class AA{
+     public static void main(String[] args) {
+         yieldornek y1= new yieldornek();
+         yieldornek y2= new yieldornek();
+         y1.start();
+         y2.start();
+     }
+ }
