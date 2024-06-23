@@ -1,0 +1,25 @@
+package threadsornek;
+
+public class threadsornek extends Thread {
+    public void run() {
+        System.out.println("selam"+ this.getName());
+    }
+}
+class threadsornek2 implements Runnable{
+
+    @Override
+    public void run() {
+        for(int i=0; i<10; i++){
+            System.out.println("selam");
+        }
+    }
+}
+class AA{
+    public static void main(String[] args) {
+            threadsornek th= new threadsornek();
+            threadsornek2 th2= new threadsornek2();
+            th.start();
+            Thread j= new Thread(th2);
+           // j.start();
+    }
+}
