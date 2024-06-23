@@ -1,0 +1,32 @@
+package soyutsinif;
+abstract class A{
+    //soyut sınıfın içinde en az bir soyut metot olmak zorundadır
+    abstract void soyutmet(int X, String str);
+    //soyut sınıf içinde somut bir metot olabilir
+    void somutmet(){
+        System.out.println("somut metot");
+    }
+}
+class B extends A {
+    @Override
+    void soyutmet(int X, String str) {
+        System.out.println("soyut metot B ");
+    }
+}
+
+class C extends A{
+    @Override
+    void soyutmet(int X, String str) {
+
+    }
+}
+
+
+public class soyutsinifarayuz {
+    public static void main(String[] args) {
+        B b= new B();
+        b.soyutmet(10,"s");
+        b.somutmet();
+    }
+}
+
