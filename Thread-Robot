@@ -1,0 +1,38 @@
+package threadsornek4;
+
+ class robot extends Thread {
+     public robot(String isim){
+         super(isim);
+     }
+     public void run(){
+         try{
+             for(int i=0; i<5; i++){
+                 System.out.println("oncelik: "+ this.getPriority()+ "-"+ this.getName()+" --->"+i);
+             }
+         }catch(Exception e){
+             System.out.println("hata oluştu "+ e);
+         }
+     }
+}
+
+ class AA{
+     public static void main(String[] args) {
+         robot r1= new robot("A");
+         robot r2= new robot("B");
+         robot r3= new robot("C");
+         robot r4= new robot("D");
+
+         r1.setPriority(Thread.MIN_PRIORITY);
+         r2.setPriority(Thread.NORM_PRIORITY);
+         r3.setPriority(Thread.MAX_PRIORITY);
+         r4.setPriority(Thread.MAX_PRIORITY-2);
+
+         r1.start();
+         r2.start();
+         r3.start();
+         r4.start();
+     }
+
+}
+
+
